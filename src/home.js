@@ -11,6 +11,7 @@ import SearchBar from './SearchBar';
 const SERVER_API_URL = 'http://localhost:4000';
 
 const Home = () => {
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     WebFont.load({
@@ -18,6 +19,17 @@ const Home = () => {
         families: ['Cinzel:400,700', 'sans-serif'],
       }
     });
+
+    const fetchUser = async () => {
+      try {
+        const response = await axios.get(`${SERVER_API_URL}/current-user`, { withCredentials: true });
+        setUser(response.data);
+      } catch (error) {
+        console.error('Failed to fetch user.');
+      }
+    };
+
+    fetchUser();
 
     document.body.style.backgroundImage = 'url(https://www.shutterstock.com/shutterstock/photos/370298699/display_1500/stock-photo-notepad-for-your-recipe-with-herbs-and-spices-over-black-stone-background-top-view-with-copy-space-370298699.jpg)';
     //document.body.style.backgroundSize = 'cover';
@@ -34,8 +46,38 @@ const Home = () => {
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="#">Home</a>
-        <Link className="nav-link" to="/register">   Register  </Link>
-        <Link className="nav-link" to="/login">  Login   </Link>
+        {user ? (
+              <>
+                {user.type === 'user' && (
+                  <>
+                   <Link className="nav-link" to="#"> Liked Recipes  </Link> 
+                  </>
+                )}
+                {user.type === 'blogger' && (
+                  <>
+                   <Link className="nav-link" to="#"> Create Recipes  </Link> 
+                  </>
+                )}
+                {user.type === 'admin' && (
+                  <>
+                    <Link className="nav-link" to="#"> Create User  </Link> 
+                    <Link className="nav-link" to="/delete-account"> Delete User  </Link> 
+                  </>
+                )}
+              </>
+            ) : (
+              <>
+                <Link className="nav-link" to="/login"> Login  </Link> 
+                <Link className="nav-link" to="/register"> Register  </Link> 
+              </>
+            )}
+            {user && (
+             <Link className="nav-link" to="/profile"> 
+                <FiUser size={20} /> Profile
+              </Link>
+            )}
+        {/* <Link className="nav-link" to="/register">   Register  </Link>
+        <Link className="nav-link" to="/login">  Login   </Link> */}
       </div>
     </div>
   </div>

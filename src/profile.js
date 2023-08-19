@@ -89,32 +89,7 @@ return (
           <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ml-auto">
                   <Nav.Link href="/search"><FiSearch size={20} /> Search Recipes</Nav.Link>
-                  {user ? (
-                      <>
-                          {user.type === 'regular' && (
-                              <>
-                                  <Nav.Link href="/clubs">Join Clubs</Nav.Link>
-                              </>
-                          )}
-                          {user.type === 'author' && (
-                              <>
-                                  <Nav.Link href="/clubs">Join Clubs</Nav.Link>
-                                  <Nav.Link href="/announcements"><FiClipboard /> Announcements</Nav.Link>
-                              </>
-                          )}
-                          {user.type === 'clubOrganizer' && (
-                              <>
-                                  <Nav.Link href="/create-club"><FiPlus />Create Club</Nav.Link>
-                                  <Nav.Link href="/manage-clubs">Manage Clubs</Nav.Link>
-                              </>
-                          )}
-                      </>
-                  ) : (
-                      <>
-                          <Nav.Link href="/login">Login</Nav.Link>
-                          <Nav.Link href="/register">Register</Nav.Link>
-                      </>
-                  )}
+                 
                   {user && (
                       <Nav.Link href="/home" className="ml-3">
                           <FiUser size={20} /> Home

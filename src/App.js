@@ -12,7 +12,7 @@ import Profile from './profile';
 import './App.css';
 import RecipeList from './recipe-list';
 import recipesReducer from './reducers/recipes-reducer';
-
+import Delete from './delete';
 const store = configureStore({reducer: {recipes: recipesReducer}});
 
 const App = () => {
@@ -32,6 +32,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/profile" element={<Profile user={user} />} />
+          <Route path="/delete-account" element={<Delete/>} />
 
           <Route path="/recipe" element={<RecipeList />} />
         </Routes>

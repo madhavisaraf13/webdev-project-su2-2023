@@ -25,7 +25,7 @@ const Login = ({ onLogin }) => {
     try {
       const response = await axios.post(`${SERVER_API_URL}/login`, formData, { withCredentials: true });
       onLogin(response.data.user);
-      navigate('/profile'); // Redirect to home page
+      navigate('/home'); // Redirect to home page
     } catch (error) {
       console.log(error);
       alert('Login failed.');
