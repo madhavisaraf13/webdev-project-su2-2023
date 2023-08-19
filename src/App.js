@@ -4,6 +4,7 @@ import Home from './home';
 import { HashRouter } from "react-router-dom";
 import Register from './register';
 import Login from './login';
+import Profile from './profile';
 import './App.css';
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/home" element={<Home user={user} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route path="/profile" element={<Profile user={user} />} />
 
         </Routes>
       </HashRouter>
