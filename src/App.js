@@ -21,13 +21,9 @@ const App = () => {
           <Route path="/home" element={<Home user={user} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
-
         </Routes>
       </HashRouter>
-
-
     </div>
-
   );
 };
 

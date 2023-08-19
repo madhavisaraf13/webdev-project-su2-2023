@@ -48,6 +48,18 @@ const Login = ({ onLogin }) => {
   }, []);
 
   return (
+    <Container>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light nav-pills">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <Link class="nav-link" to="/home">Home</Link>
+        <Link className="nav-link" to="/register">   Register  </Link>
+        <Link class="nav-link active" aria-current="page">Login</Link>
+      </div>
+    </div>
+  </div>
+</nav>
     <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
     <Card className="w-100" style={{ maxWidth: '400px', padding: '20px', borderRadius: '10px' }}>
       <div className="w-100" style={{ maxWidth: '400px', fontFamily: 'Cinzel, sans-serif' }}>
@@ -73,6 +85,7 @@ const Login = ({ onLogin }) => {
         </Form>
       </div>
       </Card>
+    </Container>
     </Container>
   );
 };
