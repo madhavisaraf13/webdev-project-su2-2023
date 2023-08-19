@@ -1,11 +1,19 @@
 import React, {useState} from 'react';
 import { Routes, Route, Navigate } from "react-router";
-import Home from './home';
 import { HashRouter } from "react-router-dom";
+import { configureStore } from '@reduxjs/toolkit';
+import {Provider} from "react-redux";
+
+import './App.css';
+import Home from './home';
 import Register from './register';
 import Login from './login';
 import Profile from './profile';
 import './App.css';
+import RecipeList from './recipe-list';
+import recipesReducer from './reducers/recipes-reducer';
+
+const store = configureStore({reducer: {recipes: recipesReducer}});
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -17,6 +25,7 @@ const App = () => {
   return (
     <div>
       <HashRouter>
+      <Provider store={store}>
         <Routes>
           <Route path="/" element={<Home user={user} />} />
           <Route path="/home" element={<Home user={user} />} />
@@ -24,12 +33,11 @@ const App = () => {
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/profile" element={<Profile user={user} />} />
 
+          <Route path="/recipe" element={<RecipeList />} />
         </Routes>
+      </Provider>
       </HashRouter>
-
-
     </div>
-
   );
 };
 
