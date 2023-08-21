@@ -55,7 +55,7 @@ const Home = () => {
                 )}
                 {user.type === 'blogger' && (
                   <>
-                   <Link className="nav-link" to="#"> Create Recipes  </Link> 
+                   <Link className="nav-link" to="/create-recipe"> Create Recipes  </Link> 
                   </>
                 )}
                 {user.type === 'admin' && (
