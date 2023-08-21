@@ -13,6 +13,7 @@ import './App.css';
 import RecipeList from './recipe-list';
 import recipesReducer from './reducers/recipes-reducer';
 import Delete from './delete';
+import CreateRecipe from './create-recipe';
 const store = configureStore({reducer: {recipes: recipesReducer}});
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/profile" element={<Profile user={user} />} />
           <Route path="/delete-account" element={<Delete/>} />
+          <Route path="/create-recipe" element={<CreateRecipe/>} />
 
           <Route path="/recipe" element={<RecipeList />} />
         </Routes>
