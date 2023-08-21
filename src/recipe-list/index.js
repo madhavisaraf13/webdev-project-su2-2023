@@ -10,6 +10,8 @@ const RecipeList = () => {
  useEffect(() => {
    dispatch(findRecipesThunk())
  }, [])
+ console.log(typeof(recipes));
+ console.log(recipes);
  return(
    <ul className="list-group">
      { loading &&
