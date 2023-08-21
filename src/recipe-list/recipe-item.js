@@ -1,26 +1,24 @@
 import React from "react";
 import {Card, CardText, CardBody, CardTitle, CardImg} from 'reactstrap';
 
-const RecipeItem = ({
-   recipe = {
-    "id": 642539,
-    "title": "Falafel Burger",
-    "image": "https://spoonacular.com/recipeImages/642539-312x231.png",
-    "imageType": "png"
-    }
- }) => {
+import RecipeById from "./recipe-by-id";
+import { Link } from "react-router-dom";
+
+const RecipeItem = ({ recipe }) => {
   
  return(
   <li className="list-group-item">
    <div className="row">
      <div className="col-8">
-     <Card style={{ width: '18rem' }}>
+     <Link to={`/recipe/details/${recipe.id}`}>
+     <Card style={{ width: '18rem' }} >
         <CardImg variant="top" src={recipe.image} />
         <CardBody>
         <CardTitle>{recipe.title}</CardTitle>
         <CardText>Add Something in breif about recipe</CardText>
         </CardBody>
     </Card>
+    </Link>
      </div>
      <br/>
    </div>
