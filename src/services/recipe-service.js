@@ -1,7 +1,7 @@
 import axios from 'axios';
 //const RECIPE_API = `${process.env.SPOONACULAR_SERVER_API_URL}/recipes`;
 const RECIPE_API = 'https://api.spoonacular.com/recipes';
-const API_KEY = 'fda3b0a141304ff3be8e7fb35497e33d';
+const API_KEY = '1d91fc28cb0b487bb76e15686bf6f058';
 
 export const findRecipes = async () => {
  console.log(RECIPE_API);
