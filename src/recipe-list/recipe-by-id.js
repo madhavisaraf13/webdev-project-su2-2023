@@ -2,10 +2,13 @@ import React, {useEffect,useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import { useParams } from "react-router-dom";
 import {AiOutlineClose, AiOutlineHeart, AiOutlineComment, AiOutlineRetweet} from "react-icons/ai";
-import * as service from "./service";
+import * as service from "./likes-service";
 import RecipeItem from "./recipe-item";
 import { findRecipeByIdThunk } from "../services/recipe-thunks";
 import styles from "./index.css";
+import axios from 'axios';
+
+const SERVER_API_URL = 'http://localhost:4000';
 
 const RecipeById = () => {
  const { id } = useParams();
@@ -13,6 +16,18 @@ const RecipeById = () => {
  const [likes, setLikes] = useState([]);
  const { recipes, loading } = useSelector(state => state.recipes)
  const dispatch = useDispatch();
+
+ const [user, setUser] = useState(null);
+
+ const fetchUser = async () => {
+    try {
+      const response = await axios.get(`${SERVER_API_URL}/current-user`, { withCredentials: true });
+      setUser(response.data);
+    } catch (error) {
+      console.error('Failed to fetch user.');
+    }
+  };
+
  const fetchLikes = async () => {
     console.log("in fetch likes");
     const likes = await service.getLikesForRecipe(id);
@@ -20,7 +35,8 @@ const RecipeById = () => {
   };
  useEffect(() => {
    dispatch(findRecipeByIdThunk(id));
-   fetchLikes();
+   fetchUser();
+   //fetchLikes();
  }, [])
  
  return(
@@ -58,12 +74,12 @@ const RecipeById = () => {
                 </div>
             </div>
             <div style={{display:"flex", justifyContent:"space-around"}}>
-                <div><a href="javascript:void(0)"><AiOutlineHeart className="text-danger" style={{fontSize: '20px'}}  onClick={() => {
+                {user && <div><a href="javascript:void(0)"><AiOutlineHeart className="text-danger" style={{fontSize: '20px'}}  onClick={() => {
             service.userLikesRecipe(recipe.id, {
               name: recipe.name,
               recipeId: recipe.id,
             });
-          }}/></a><span>2</span></div>
+          }}/></a><span>2</span></div>}
                 <div><a href="javascript:void(0)"><AiOutlineComment className="" href="" style={{fontSize: '20px'}}  /></a><span>1</span></div>
             </div>
         </div>

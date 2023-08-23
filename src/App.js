@@ -15,6 +15,7 @@ import recipesReducer from './reducers/recipes-reducer';
 import Delete from './delete';
 import CreateRecipe from './create-recipe';
 import RecipeById from './recipe-list/recipe-by-id';
+import Search from './search';
 
 const store = configureStore({reducer: {recipes: recipesReducer}});
 
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/home" element={<Home user={user} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route path="/search" element={<Search />} />
           <Route path="/profile" element={<Profile user={user} />} />
           <Route path="/delete-account" element={<Delete/>} />
           <Route path="/create-recipe" element={<CreateRecipe/>} />
