@@ -5,13 +5,12 @@ import { FiUser, FiSearch, FiClipboard, FiPlus } from 'react-icons/fi';
 import WebFont from 'webfontloader';
 import { Link, useLocation } from "react-router-dom";
 import SearchBar from './SearchBar';
-import DynamicList from './dynamic';
 //import './index.css';
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
 	rel="stylesheet"/>
 const SERVER_API_URL = 'http://localhost:4000';
 
-const Home = () => {
+const Search = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -46,7 +45,7 @@ const Home = () => {
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <a class="nav-link" href="#">Home</a>
         {user ? (
               <>
                 {user.type === 'user' && (
@@ -79,7 +78,7 @@ const Home = () => {
             )}
         {/* <Link className="nav-link" to="/register">   Register  </Link>
         <Link className="nav-link" to="/login">  Login   </Link> */
-        <Link className="nav-link" to="/search"> Search Recipes  </Link> }
+        <Link className="nav-link active"  aria-current="page" to="/search"> Search Recipes  </Link> }
       </div>
     </div>
   </div>
@@ -96,8 +95,7 @@ const Home = () => {
       backgroundAttachment: 'fixed',
       minHeight: '100vh'
   }}> */}
-      {/*<SearchBar/>*/}
-      {<DynamicList/>}
+      <SearchBar/>
       {/* <Link className="list-group" to="/login">   Login   </Link>
       <Link className="list-group" to="/register">   Register   </Link> */}
     {/* </div> */}
@@ -106,4 +104,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Search;

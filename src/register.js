@@ -60,6 +60,7 @@ const Register = () => {
         <Link class="nav-link" to="/home">Home</Link>
         <Link class="nav-link active" aria-current="page">Register</Link>
         <Link className="nav-link" to="/login"> Login</Link>
+        <Link className="nav-link" to="/search"> Search Recipes  </Link> 
       </div>
     </div>
   </div>

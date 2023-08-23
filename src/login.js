@@ -56,6 +56,7 @@ const Login = ({ onLogin }) => {
         <Link class="nav-link" to="/home">Home</Link>
         <Link className="nav-link" to="/register">   Register  </Link>
         <Link class="nav-link active" aria-current="page">Login</Link>
+        <Link className="nav-link" to="/search"> Search Recipes  </Link> 
       </div>
     </div>
   </div>
