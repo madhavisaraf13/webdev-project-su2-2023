@@ -37,7 +37,6 @@ const App = () => {
           <Route path="/profile" element={<Profile user={user} />} />
           <Route path="/delete-account" element={<Delete/>} />
           <Route path="/create-recipe" element={<CreateRecipe/>} />
-
           <Route path="/recipe" element={<RecipeList />} />
           <Route path="/recipe/details/:id" element={<RecipeById />} />
         </Routes>
