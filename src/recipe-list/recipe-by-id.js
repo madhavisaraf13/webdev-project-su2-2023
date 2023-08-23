@@ -7,6 +7,8 @@ import RecipeItem from "./recipe-item";
 import { findRecipeByIdThunk } from "../services/recipe-thunks";
 import styles from "./index.css";
 import axios from 'axios';
+import {toast} from 'react-toastify';
+
 
 const SERVER_API_URL = 'http://localhost:4000';
 
@@ -79,13 +81,10 @@ const RecipeById = () => {
               name: recipe.name,
               recipeId: recipe.id,
             });
-          }}/></a><span>2</span></div>}
-                <div><a href="javascript:void(0)"><AiOutlineComment className="" href="" style={{fontSize: '20px'}}  /></a><span>1</span></div>
+            alert('Recipe added in Likes');
+          }}/></a></div>}
             </div>
         </div>
-        <div class="wd-post-float-right">
-            <i class="fa fa-ellipsis-h"></i>
-        </div> 
         <div class="wd-float-done"></div>
     </div>
     </div>

@@ -1,11 +1,10 @@
 import axios from 'axios';
 //const RECIPE_API = `${process.env.SPOONACULAR_SERVER_API_URL}/recipes`;
 const RECIPE_API = 'https://api.spoonacular.com/recipes';
-const API_KEY = 'aa0354a676eb49758d0dd4064fbe2b4d';
-
+const API_KEY = 'c9ef1c69b2b144e7990c054b44bfdbcf';
 export const findRecipes = async () => {
  console.log(RECIPE_API);
- const response = await axios.get(RECIPE_API+'/complexSearch?apiKey=2ecaf6fb3fad4f668615d6c6623b3e9b&query=burger&diet=vegetarian');
+ const response = await axios.get(RECIPE_API+'/complexSearch?apiKey=c9ef1c69b2b144e7990c054b44bfdbcf&query=burger&diet=vegetarian');
  const recipes = response.data;
  return recipes.results;
 }

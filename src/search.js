@@ -31,7 +31,7 @@ const Search = () => {
 
     fetchUser();
 
-    document.body.style.backgroundImage = 'url(https://www.shutterstock.com/shutterstock/photos/370298699/display_1500/stock-photo-notepad-for-your-recipe-with-herbs-and-spices-over-black-stone-background-top-view-with-copy-space-370298699.jpg)';
+    document.body.style.backgroundImage = 'url(https://www.themanual.com/wp-content/uploads/sites/9/2021/01/chefrecipes.jpg?p=1)';
     //document.body.style.backgroundSize = 'cover';
     return () => {
       document.body.style.backgroundImage = null;

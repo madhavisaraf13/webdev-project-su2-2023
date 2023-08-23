@@ -14,8 +14,7 @@ const RecipeItem = ({ recipe }) => {
      <Card style={{ width: '18rem' }} >
         <CardImg variant="top" src={recipe.image} />
         <CardBody>
-        <CardTitle>{recipe.title}</CardTitle>
-        <CardText>Add Something in breif about recipe</CardText>
+        <CardTitle><b>{recipe.title}</b></CardTitle>
         </CardBody>
     </Card>
     </Link>

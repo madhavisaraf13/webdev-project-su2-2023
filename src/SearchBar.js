@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import RecipeItem from "./recipe-list/recipe-item";
 import { findRecipesQuery } from "./services/recipe-service";
 import { findRecipesQueryThunk } from "./services/recipe-thunks";
+import './index.css';
 
 function SearchBar() {
 
@@ -55,25 +56,41 @@ function SearchBar() {
                   dispatch(findRecipesQueryThunk(query));
                 
                 }} 
-                className="btn btn-outline-light m-3" data-mdb-ripple-color="dark" type="submit">
+                className="btn btn-info m-3" data-mdb-ripple-color="dark" type="submit">
                 Search
               </button>
             </form>
-            {recipes?.length > 0 &&  <h3>Albums</h3>}
-              <div className="table-responsive">
-              <ul>
+            {recipes?.length > 0 &&  <h3><b>We found these recipes for you ...</b></h3>}
+            <div className="table-responsive">
+            <table className="table">
+            <tbody>
+             <tr>
               { loading &&
                 <li className="list-group-item">
                 Loading...
                 </li>
               }
-              {
-                recipes?.map(recipe =>
-                <RecipeItem
-                  key={recipe.id} recipe={recipe}/> )
-              }
-              </ul>
-            </div>
+              {recipes?.map((recipe) => {
+
+return (
+
+  <td>
+    <RecipeItem
+                key={recipe.id} recipe={recipe}/> 
+
+
+  </td>
+
+);
+
+})}
+              </tr>
+
+  </tbody>
+
+</table>
+
+</div>
           </div>
         </div>
       </div>

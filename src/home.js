@@ -32,7 +32,7 @@ const Home = () => {
 
     fetchUser();
 
-    document.body.style.backgroundImage = 'url(https://www.shutterstock.com/shutterstock/photos/370298699/display_1500/stock-photo-notepad-for-your-recipe-with-herbs-and-spices-over-black-stone-background-top-view-with-copy-space-370298699.jpg)';
+    document.body.style.backgroundImage = 'url(https://img.freepik.com/premium-photo/colorful-various-herbs-spices-cooking-dark-background-copy-space-mock-up-banner-high-quality-photo_370312-387.jpg)';
     //document.body.style.backgroundSize = 'cover';
     return () => {
       document.body.style.backgroundImage = null;

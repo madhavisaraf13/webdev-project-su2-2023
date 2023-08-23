@@ -80,7 +80,7 @@ function DynamicList() {
               </ul>
             </div>
             */
-            <h1 className="wd-color" >Trending Recipes:</h1>
+            <h1 className="wd-color" >#Trending Recipes</h1>
             }
             {/*
                 recipes.map(recipe =>
