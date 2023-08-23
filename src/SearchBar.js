@@ -50,7 +50,8 @@ function SearchBar() {
                 placeholder="What do you want to cook today...?"
                 aria-label="Go"
               />
-              <button onClick={() => {
+              <button onClick={(e) => {
+                e.preventDefault();
                   dispatch(findRecipesQueryThunk(query));
                 
                 }} 
